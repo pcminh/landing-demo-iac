@@ -18,7 +18,7 @@ jobs:
       id-token: write
       contents: write
     env:
-      AWS_REGION: '${{ vars.AWS_REGION }}'
+      AWS_REGION: '${{ vars.AWS_XREGION }}'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -32,7 +32,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: '${{ secrets.AWS_IAM_ROLE }}'
-          aws-region: '${{ vars.AWS_REGION }}'
+          aws-region: '${{ vars.AWS_XREGION }}'
 
       - name: Terraform Init
         run: terraform init
