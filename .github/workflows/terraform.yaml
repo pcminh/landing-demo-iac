@@ -10,6 +10,7 @@ on:
 
 jobs:
   terraform:
+    environment: '${{ env.ENVIRONMENT }}'
     runs-on: ubuntu-latest
     permissions:
       actions: read
