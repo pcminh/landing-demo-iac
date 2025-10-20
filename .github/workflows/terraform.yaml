@@ -20,6 +20,9 @@ jobs:
       issues: write
       id-token: write
       contents: write
+    defaults:
+      run:
+        working-directory: ./terraform
     env:
       AWS_REGION: ap-southeast-1
       AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}'
