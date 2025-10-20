@@ -10,13 +10,14 @@ on:
 
 jobs:
   terraform:
-    environment: '${{ env.ENVIRONMENT }}'
     runs-on: ubuntu-latest
     permissions:
       actions: read
       issues: write
       id-token: write
       contents: write
+    env:
+      AWS_REGION: '${{ env.AWS_REGION }}'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -30,7 +31,6 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: '${{ secrets.AWS_IAM_ROLE }}'
-          aws-region: '${{ env.AWS_REGION }}'
 
       - name: Terraform Init
         run: terraform init
