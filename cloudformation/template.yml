@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: |-
+  Initialize a S3 bucket for Terraform backend
+
+Resources:
+  TfBackendBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: "terraform-backend-2b706c4385ec4f008d37ead73ac971cf"
+      VersioningConfiguration:
+        Status: Enabled
