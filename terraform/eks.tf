@@ -8,6 +8,7 @@ module "eks" {
   name = var.eks_config.cluster_name
   kubernetes_version = "1.33"
 
+  endpoint_private_access = true
   endpoint_public_access = true
   enable_cluster_creator_admin_permissions = true
 
